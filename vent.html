@@ -8,17 +8,21 @@
     body {
         font-family: Arial, sans-serif;
         text-align: center;
-        padding: 20px;
     }
-    h2 {
-        margin-bottom: 20px;
+    .container {
+        width: 300px;
+        margin: 0 auto;
+        text-align: center;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
     }
     label {
         display: block;
-        margin-bottom: 10px;
+        margin-bottom: 5px;
     }
     input {
-        width: 100%;
+        width: calc(100% - 10px); /* Réduire la largeur pour compenser le padding */
         margin-bottom: 10px;
         padding: 5px;
         box-sizing: border-box;
@@ -42,18 +46,20 @@
 </style>
 </head>
 <body>
-    <h2>Convertisseur de Nœuds et km/h</h2>
-    <label for="noeudsInput">Nœuds :</label>
-    <input type="number" id="noeudsInput" placeholder="Entrez les nœuds" step="any">
-    <button onclick="convertToKmph()">Convertir en km/h</button>
-    <p id="resultatKmph"></p>
+    <div class="container">
+        <h2>Convertisseur de Nœuds et km/h</h2>
+        <label for="noeudsInput">Nœuds :</label>
+        <input type="number" id="noeudsInput" placeholder="Entrez les nœuds" step="any">
+        <button onclick="convertToKmph()">Convertir en km/h</button>
+        <p id="resultatKmph"></p>
 
-    <label for="kmphInput">km/h :</label>
-    <input type="number" id="kmphInput" placeholder="Entrez les km/h" step="any">
-    <button onclick="convertToNoeuds()">Convertir en Nœuds</button>
-    <p id="resultatNoeuds"></p>
+        <label for="kmphInput">km/h :</label>
+        <input type="number" id="kmphInput" placeholder="Entrez les km/h" step="any">
+        <button onclick="convertToNoeuds()">Convertir en Nœuds</button>
+        <p id="resultatNoeuds"></p>
 
-    <button onclick="goToIndex()">Retour à l'index</button>
+        <button onclick="goToIndex()">Retour à l'index</button>
+    </div>
 
     <script>
         function convertToKmph() {
