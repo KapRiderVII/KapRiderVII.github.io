@@ -8,6 +8,36 @@
     body {
         font-family: Arial, sans-serif;
         text-align: center;
+        padding: 20px;
+    }
+    h2 {
+        margin-bottom: 20px;
+    }
+    label {
+        display: block;
+        margin-bottom: 10px;
+    }
+    input {
+        width: 100%;
+        margin-bottom: 10px;
+        padding: 5px;
+        box-sizing: border-box;
+    }
+    button {
+        width: 100%;
+        padding: 10px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-bottom: 10px;
+    }
+    button:hover {
+        background-color: #0056b3;
+    }
+    p {
+        font-weight: bold;
     }
 </style>
 </head>
@@ -22,8 +52,8 @@
     <input type="number" id="kmphInput" placeholder="Entrez les km/h" step="any">
     <button onclick="convertToNoeuds()">Convertir en Nœuds</button>
     <p id="resultatNoeuds"></p>
-    <button onclick="goToIndex()">Retour à l'index</button>
 
+    <button onclick="goToIndex()">Retour à l'index</button>
 
     <script>
         function convertToKmph() {
@@ -36,9 +66,10 @@
             var kmphInput = document.getElementById("kmphInput").value;
             var resultatNoeuds = parseFloat(kmphInput) / 1.852;
             document.getElementById("resultatNoeuds").innerText = "La vitesse en nœuds est : " + resultatNoeuds.toFixed(2);
-    	function goToIndex() {
+        }
+
+        function goToIndex() {
             window.location.href = "https://kapridervii.github.io";
-    	}
         }
     </script>
 </body>
