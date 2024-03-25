@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Calcul de conversion</title>
+<title>Convertisseur de Nœuds et km/h</title>
 <style>
     body {
         font-family: Arial, sans-serif;
@@ -12,17 +12,28 @@
 </style>
 </head>
 <body>
-    <h2>Calcul de conversion</h2>
-    <label for="distanceInput">Entrez une distance en km/h :</label>
-    <input type="number" id="distanceInput" placeholder="Entrez la distance" step="any">
-    <button onclick="calculer()">Calculer</button>
-    <p id="resultat"></p>
+    <h2>Convertisseur de Nœuds et km/h</h2>
+    <label for="noeudsInput">Nœuds :</label>
+    <input type="number" id="noeudsInput" placeholder="Entrez les nœuds" step="any">
+    <button onclick="convertToKmph()">Convertir en km/h</button>
+    <p id="resultatKmph"></p>
+
+    <label for="kmphInput">km/h :</label>
+    <input type="number" id="kmphInput" placeholder="Entrez les km/h" step="any">
+    <button onclick="convertToNoeuds()">Convertir en Nœuds</button>
+    <p id="resultatNoeuds"></p>
 
     <script>
-        function calculer() {
-            var distanceInput = document.getElementById("distanceInput").value;
-            var resultat = parseFloat(distanceInput) / 1.852;
-            document.getElementById("resultat").innerText = "La distance en miles nautiques est : " + resultat.toFixed(2);
+        function convertToKmph() {
+            var noeudsInput = document.getElementById("noeudsInput").value;
+            var resultatKmph = parseFloat(noeudsInput) * 1.852;
+            document.getElementById("resultatKmph").innerText = "La vitesse en km/h est : " + resultatKmph.toFixed(2);
+        }
+
+        function convertToNoeuds() {
+            var kmphInput = document.getElementById("kmphInput").value;
+            var resultatNoeuds = parseFloat(kmphInput) / 1.852;
+            document.getElementById("resultatNoeuds").innerText = "La vitesse en nœuds est : " + resultatNoeuds.toFixed(2);
         }
     </script>
 </body>
