@@ -13,7 +13,7 @@
 </head>
 <body>
     <h2>Calcul de conversion</h2>
-    <label for="distanceInput">Entrez une distance en miles nautiques :</label>
+    <label for="distanceInput">Entrez une distance en km/h :</label>
     <input type="number" id="distanceInput" placeholder="Entrez la distance" step="any">
     <button onclick="calculer()">Calculer</button>
     <p id="resultat"></p>
@@ -22,9 +22,8 @@
         function calculer() {
             var distanceInput = document.getElementById("distanceInput").value;
             var resultat = parseFloat(distanceInput) / 1.852;
-            document.getElementById("resultat").innerText = "La distance en kilomètres est : " + resultat.toFixed(2);
+            document.getElementById("resultat").innerText = "La distance en miles nautiques est : " + resultat.toFixed(2);
         }
     </script>
 </body>
 </html>
-
