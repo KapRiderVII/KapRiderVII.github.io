@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculateur de vitesse</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+    .container {
+        width: 300px;
+        margin: 0 auto;
+        text-align: center;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    label {
+        display: block;
+        margin-bottom: 5px;
+    }
+    input {
+        width: 100%;
+        margin-bottom: 10px;
+        padding: 5px;
+        box-sizing: border-box;
+    }
+    button {
+        width: 100%;
+        padding: 10px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    button:hover {
+        background-color: #0056b3;
+    }
+    #result {
+        margin-top: 20px;
+        font-weight: bold;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Calculateur de vitesse</h2>
+    <label for="meters">Mètres:</label>
+    <input type="number" id="meters" value="0">
+    <label for="centimeters">Centimètres:</label>
+    <input type="number" id="centimeters" value="0">
+    <label for="hours">Temps pris :</label>
+    <input type="number" id="hours" placeholder="Heures" value="0">
+    <input type="number" id="minutes" placeholder="Minutes" value="0">
+    <input type="number" id="seconds" placeholder="Secondes" value="0">
+    <button onclick="calculateSpeed()">Calculer</button>
+    <div id="result"></div>
+    <button onclick="goToIndex()">Retour à l'index</button>
+
+</div>
+
+<script>
+    function calculateSpeed() {
+        const meters = parseFloat(document.getElementById('meters').value) || 0;
+        const centimeters = parseFloat(document.getElementById('centimeters').value) || 0;
+        const distance = meters + (centimeters / 100);
+        
+        const hours = parseFloat(document.getElementById('hours').value) || 0;
+        const minutes = parseFloat(document.getElementById('minutes').value) || 0;
+        const seconds = parseFloat(document.getElementById('seconds').value) || 0;
+        
+        const totalTime = hours + (minutes / 60) + (seconds / 3600);
+        
+        if (!isNaN(totalTime) && totalTime > 0) {
+            const speedMeterPerSecond = distance / totalTime;
+            const speedKilometerPerHour = (speedMeterPerSecond * 3.6).toFixed(2);
+            document.getElementById('result').textContent = "Vitesse : " + speedMeterPerSecond.toFixed(2) + " m/s | " + speedKilometerPerHour + " km/h";
+        } else {
+            document.getElementById('result').textContent = "Veuillez entrer des valeurs valides pour le temps.";
+        }
+    function goToIndex() {
+        window.location.href = "index.html";
+    }
+</script>
+
+</body>
+</html>

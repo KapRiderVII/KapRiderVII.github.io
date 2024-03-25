@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Convertisseur de Nœuds et km/h</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+    }
+</style>
+</head>
+<body>
+    <h2>Convertisseur de Nœuds et km/h</h2>
+    <label for="noeudsInput">Nœuds :</label>
+    <input type="number" id="noeudsInput" placeholder="Entrez les nœuds" step="any">
+    <button onclick="convertToKmph()">Convertir en km/h</button>
+    <p id="resultatKmph"></p>
+
+    <label for="kmphInput">km/h :</label>
+    <input type="number" id="kmphInput" placeholder="Entrez les km/h" step="any">
+    <button onclick="convertToNoeuds()">Convertir en Nœuds</button>
+    <p id="resultatNoeuds"></p>
+    <button onclick="goToIndex()">Retour à l'index</button>
+
+
+    <script>
+        function convertToKmph() {
+            var noeudsInput = document.getElementById("noeudsInput").value;
+            var resultatKmph = parseFloat(noeudsInput) * 1.852;
+            document.getElementById("resultatKmph").innerText = "La vitesse en km/h est : " + resultatKmph.toFixed(2);
+        }
+
+        function convertToNoeuds() {
+            var kmphInput = document.getElementById("kmphInput").value;
+            var resultatNoeuds = parseFloat(kmphInput) / 1.852;
+            document.getElementById("resultatNoeuds").innerText = "La vitesse en nœuds est : " + resultatNoeuds.toFixed(2);
+    	function goToIndex() {
+            window.location.href = "index.html";
+    	}
+        }
+    </script>
+</body>
+</html>
