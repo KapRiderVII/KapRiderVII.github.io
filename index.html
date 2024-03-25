@@ -1,16 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Live CSS</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calcul de conversion</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+    }
+</style>
 </head>
 <body>
+    <h2>Calcul de conversion</h2>
+    <label for="distanceInput">Entrez une distance en miles nautiques :</label>
+    <input type="number" id="distanceInput" placeholder="Entrez la distance" step="any">
+    <button onclick="calculer()">Calculer</button>
+    <p id="resultat"></p>
 
-<style contenteditable style="display: block;">
-html{
- background: #55555;
-}
-</style>
-<p>Hello</p>
-
+    <script>
+        function calculer() {
+            var distanceInput = document.getElementById("distanceInput").value;
+            var resultat = parseFloat(distanceInput) / 1.852;
+            document.getElementById("resultat").innerText = "La distance en kilomètres est : " + resultat.toFixed(2);
+        }
+    </script>
 </body>
 </html>
+
